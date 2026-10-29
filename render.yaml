@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: smart-crm-system
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        value: admin@smartcrm.com
+      - key: ADMIN_PASSWORD
+        value: Admin@123CRM!
+      - key: GEMINI_API_KEY
+        sync: false
